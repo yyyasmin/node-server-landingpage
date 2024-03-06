@@ -14,6 +14,16 @@ app.use(cors()); // Add the cors middleware to allow all origins
 
 const dataFilePath = path.join(__dirname, 'form_data.json');
 
+// WITH BASE-URL
+// Serve static files from the 'frontend/build' directory
+app.use(express.static(path.join(__dirname, '../frontend/build')));
+
+// Route handler for serving the CustomOrderForm component
+app.get('/custom-order-form', (req, res) => {
+  res.sendFile(path.join(__dirname, '../frontend/build', 'index.html'));
+});
+// END WITH BASE-URL
+
 // Endpoint to submit order
 app.post('/api/submit-order', (req, res) => {
 
