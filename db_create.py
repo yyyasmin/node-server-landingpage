@@ -16,13 +16,4 @@ class Order(db.Model):
 
 if __name__ == '__main__':
     with app.app_context():
-        # Reflect the database tables
-        db.reflect()
-
-        # Check if the 'Order' table exists
-        if 'order' not in db.metadata.tables:
-            # Table does not exist, create it
-            db.create_all()
-            print("Table 'Order' created successfully.")
-        else:
-            print("Table 'Order' already exists.")
+        db.create_all()

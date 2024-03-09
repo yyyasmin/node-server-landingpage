@@ -16,7 +16,7 @@
     "buildCommand": "echo 'Running build command' && python -m venv .venv && source .venv/bin/activate && pip install -r requirements.txt"
   },
   "deploy": {
-    "startCommand": "python db_create.py",
+    "startCommand": "gunicorn app:app",
     "restartPolicyType": "ON_FAILURE",
     "restartPolicyMaxRetries": 10
   }
